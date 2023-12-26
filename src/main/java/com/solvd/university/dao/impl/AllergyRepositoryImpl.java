@@ -1,13 +1,13 @@
 package com.solvd.university.dao.impl;
 
-import com.solvd.university.dao.AllergyRepository;
 import com.solvd.university.dao.ConnectionPool;
+import com.solvd.university.dao.MedicalRepository;
 import com.solvd.university.model.Allergy;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.*;
 
-public class AllergyRepositoryImpl implements AllergyRepository {
+public class AllergyRepositoryImpl implements MedicalRepository<Allergy> {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override

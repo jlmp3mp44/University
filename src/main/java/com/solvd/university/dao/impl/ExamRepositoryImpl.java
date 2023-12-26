@@ -1,13 +1,13 @@
 package com.solvd.university.dao.impl;
 
+import com.solvd.university.dao.AssessmentRepository;
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.ExamRepository;
 import com.solvd.university.model.Exam;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.*;
 
-public class ExamRepositoryImpl implements ExamRepository {
+public class ExamRepositoryImpl implements AssessmentRepository<Exam> {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override

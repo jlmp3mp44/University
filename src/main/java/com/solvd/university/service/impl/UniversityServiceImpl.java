@@ -1,14 +1,14 @@
 package com.solvd.university.service.impl;
 
-import com.solvd.university.dao.UniversityRepository;
+import com.solvd.university.dao.EducationalRepository;
 import com.solvd.university.dao.impl.UniversityRepositoryImpl;
 import com.solvd.university.model.University;
-import com.solvd.university.service.UniversityService;
+import com.solvd.university.service.EducationalService;
 
 import java.util.List;
 
-public class UniversityServiceImpl implements UniversityService {
-    private final UniversityRepository universityRepository;
+public class UniversityServiceImpl implements EducationalService<University> {
+    private final EducationalRepository universityRepository;
 
     public UniversityServiceImpl() {
         this.universityRepository = new UniversityRepositoryImpl();
