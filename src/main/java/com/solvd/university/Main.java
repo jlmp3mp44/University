@@ -32,31 +32,31 @@ public class Main {
         Payment payment = new Payment("Monobank", null, null, new Date(2023 - 12 - 01));
 
 
-        AllergyService allergyService = new AllergyServiceImpl();
+        MedicalService allergyService = new AllergyServiceImpl();
 
-        CafedraService cafedraService = new CafedraServiceImpl();
+        EducationalService cafedraService = new CafedraServiceImpl();
 
-        HealthRecordService healthRecordService = new HealthRecordServiceImpl();
+        MedicalService healthRecordService = new HealthRecordServiceImpl();
 
-        ExamService examService = new ExamServiceImpl();
+        AssesstmentService examService = new ExamServiceImpl();
 
-        FacultyService facultyService = new FacultyServiceImpl();
+        EducationalService facultyService = new FacultyServiceImpl();
 
         PaymentService paymentService = new PaymentServiceImpl();
 
         PriceService priceService = new PriceServiceImpl();
 
-        ProfessorService professorService = new ProfessorServiceImpl();
+        PersonService professorService = new ProfessorServiceImpl();
 
-        SpecialityService specialityService = new SpecialityServiceImpl();
+        EducationalService specialityService = new SpecialityServiceImpl();
 
-        StudentService studentService = new StudentServiceImpl();
+        PersonService studentService = new StudentServiceImpl();
 
-        SubjectService subjectService = new SubjectServiceImpl();
+        AssesstmentService subjectService = new SubjectServiceImpl();
 
-        UniversityService universityService = new UniversityServiceImpl();
+        EducationalService universityService = new UniversityServiceImpl();
 
-        VaccineService vaccineService = new VaccineServiceImpl();
+        MedicalService vaccineService = new VaccineServiceImpl();
 
         healthRecordService.create(healthRecord);
         allergy.setHealthRecordId(healthRecord.getId());

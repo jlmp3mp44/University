@@ -1,14 +1,14 @@
 package com.solvd.university.service.impl;
 
-import com.solvd.university.dao.ProfessorRepository;
+import com.solvd.university.dao.PersonRepository;
 import com.solvd.university.dao.impl.ProfessorRepositoryImpl;
 import com.solvd.university.model.Professor;
-import com.solvd.university.service.ProfessorService;
+import com.solvd.university.service.PersonService;
 
 import java.util.List;
 
-public class ProfessorServiceImpl implements ProfessorService {
-    private final ProfessorRepository professorRepository;
+public class ProfessorServiceImpl implements PersonService<Professor> {
+    private final PersonRepository professorRepository;
 
     public ProfessorServiceImpl() {
         this.professorRepository = new ProfessorRepositoryImpl();
@@ -21,5 +21,8 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     public List<Professor> findAll() {
         return professorRepository.findAll();
+    }
+    public void delete(Professor professor){
+        professorRepository.delete(professor);
     }
 }

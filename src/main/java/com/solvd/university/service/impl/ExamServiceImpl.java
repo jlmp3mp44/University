@@ -1,12 +1,12 @@
 package com.solvd.university.service.impl;
 
-import com.solvd.university.dao.ExamRepository;
+import com.solvd.university.dao.AssessmentRepository;
 import com.solvd.university.dao.impl.ExamRepositoryImpl;
 import com.solvd.university.model.Exam;
-import com.solvd.university.service.ExamService;
+import com.solvd.university.service.AssesstmentService;
 
-public class ExamServiceImpl implements ExamService {
-    private final ExamRepository examRepository;
+public class ExamServiceImpl implements AssesstmentService<Exam> {
+    private final AssessmentRepository examRepository;
 
     public ExamServiceImpl() {
         this.examRepository = new ExamRepositoryImpl();
@@ -18,7 +18,7 @@ public class ExamServiceImpl implements ExamService {
     }
 
     public Exam findById(Long examId) {
-        Exam exam = examRepository.findById(examId);
+        Exam exam = (Exam) examRepository.findById(examId);
         return exam;
     }
 }

@@ -1,7 +1,7 @@
 package com.solvd.university.dao.impl;
 
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.ProfessorRepository;
+import com.solvd.university.dao.PersonRepository;
 import com.solvd.university.model.Professor;
 import com.solvd.university.model.exceptions.ProcessException;
 
@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProfessorRepositoryImpl implements ProfessorRepository {
+public class ProfessorRepositoryImpl implements PersonRepository<Professor> {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override
@@ -58,4 +58,19 @@ public class ProfessorRepositoryImpl implements ProfessorRepository {
         }
         return professors;
     }
+    @Override
+    public void delete(Professor professor) {
+        Connection connection = CONNECTION_POOL.getConnection();
+        try {
+            String deleteByID = "DELETE FROM proffessors WHERE id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(deleteByID);
+            preparedStatement.setLong(1, professor.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            throw new ProcessException("Can`t delete a proffessor", e);
+        } finally {
+            CONNECTION_POOL.releaseConnection(connection);
+        }
+    }
+
 }
