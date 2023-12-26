@@ -15,8 +15,10 @@ public class StudentServiceImpl implements PersonService<Student> {
     }
 
     public void create(Student student) {
-        student.setId(null);
-        studentRepository.create(student);
+        if(student.getName()!=null && student.getPhoneNumber()!=null && student.getEmail()!=null) {
+            student.setId(null);
+            studentRepository.create(student);
+        }
 
     }
 

@@ -15,8 +15,10 @@ public class ProfessorServiceImpl implements PersonService<Professor> {
     }
 
     public void create(Professor professor) {
-        professor.setId(null);
-        professorRepository.create(professor);
+        if(professor.getName()!=null & professor.getSurname()!=null) {
+            professor.setId(null);
+            professorRepository.create(professor);
+        }
     }
 
     public List<Professor> findAll() {

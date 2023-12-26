@@ -16,8 +16,10 @@ public class FacultyServiceImpl implements EducationalService<Faculty> {
     }
 
     public void create(Faculty faculty) {
-        faculty.setId(null);
-        facultyRepository.create(faculty);
+        if(faculty.getTitle()!=null & faculty.getDekan()!=null & faculty.getUniversityId()!=null) {
+            faculty.setId(null);
+            facultyRepository.create(faculty);
+        }
     }
 
     public List<Faculty> findAll() {

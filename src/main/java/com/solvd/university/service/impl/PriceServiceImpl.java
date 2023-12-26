@@ -13,8 +13,10 @@ public class PriceServiceImpl implements PriceService {
     }
 
     public void create(Price price) {
-        price.setId(null);
-        priceRepository.create(price);
+        if(price.getCost()!= 0 ) {
+            price.setId(null);
+            priceRepository.create(price);
+        }
     }
 
     public Price findById(Long priceId) {
