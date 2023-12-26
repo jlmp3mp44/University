@@ -13,8 +13,10 @@ public class SpecialityServiceImpl implements EducationalService<Speciality> {
     }
 
     public void create(Speciality speciality) {
-        speciality.setId(null);
-        specialityRepository.create(speciality);
+        if(speciality.getTitle()!=null) {
+            speciality.setId(null);
+            specialityRepository.create(speciality);
+        }
     }
 
     public void update(Speciality speciality) {

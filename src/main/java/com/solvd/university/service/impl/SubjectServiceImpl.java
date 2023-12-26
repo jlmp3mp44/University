@@ -13,8 +13,10 @@ public class SubjectServiceImpl implements AssesstmentService<Subject> {
     }
 
     public void create(Subject subject) {
-        subject.setId(null);
-        subjectRepository.create(subject);
+        if(subject.getTitle()!=null) {
+            subject.setId(null);
+            subjectRepository.create(subject);
+        }
     }
 
     public Subject findById(Long id) {

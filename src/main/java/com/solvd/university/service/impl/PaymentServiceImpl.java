@@ -13,8 +13,10 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     public void create(Payment payment) {
-        payment.setId(null);
-        paymentRepository.create(payment);
+        if(payment.getPriceId()!=null && payment.getStudentId()!=null) {
+            payment.setId(null);
+            paymentRepository.create(payment);
+        }
     }
 
     public void delete(Payment payment) {

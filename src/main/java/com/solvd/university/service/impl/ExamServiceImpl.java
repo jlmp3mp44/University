@@ -13,8 +13,10 @@ public class ExamServiceImpl implements AssesstmentService<Exam> {
     }
 
     public void create(Exam exam) {
-        exam.setId(null);
-        examRepository.create(exam);
+        if(exam.getTitle()!=null) {
+            exam.setId(null);
+            examRepository.create(exam);
+        }
     }
 
     public Exam findById(Long examId) {

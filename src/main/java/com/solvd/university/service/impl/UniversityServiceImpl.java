@@ -15,8 +15,10 @@ public class UniversityServiceImpl implements EducationalService<University> {
     }
 
     public void create(University university) {
-        university.setId(null);
-        universityRepository.create(university);
+        if(university.getTitle()!=null && university.getRector()!=null) {
+            university.setId(null);
+            universityRepository.create(university);
+        }
     }
 
     public List<University> findAll() {

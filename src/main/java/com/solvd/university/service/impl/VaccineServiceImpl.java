@@ -13,8 +13,10 @@ public class VaccineServiceImpl implements MedicalService<Vaccine> {
     }
 
     public void create(Vaccine vaccine) {
-        vaccine.setId(null);
-        vaccineRepository.create(vaccine);
+        if(vaccine.getTitle()!=null) {
+            vaccine.setId(null);
+            vaccineRepository.create(vaccine);
+        }
     }
 
     public void update(Vaccine vaccine) {

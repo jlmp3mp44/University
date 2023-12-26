@@ -14,8 +14,10 @@ public class CafedraServiceImpl implements EducationalService<Cafedra> {
     }
 
     public void create(Cafedra cafedra) {
-        cafedra.setId(null);
-        cafedraRepository.create(cafedra);
+        if(cafedra.getTitle()!=null) {
+            cafedra.setId(null);
+            cafedraRepository.create(cafedra);
+        }
     }
 
     public void delete(Cafedra cafedra) {

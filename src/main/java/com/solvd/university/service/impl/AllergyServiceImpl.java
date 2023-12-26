@@ -13,8 +13,10 @@ public class AllergyServiceImpl implements MedicalService<Allergy> {
     }
 
     public void create(Allergy allergy) {
-        allergy.setId(null);
-        allergyRepository.create(allergy);
+        if(allergy.getTitle()!=null) {
+            allergy.setId(null);
+            allergyRepository.create(allergy);
+        }
     }
 
     public void update(Allergy allergy) {
