@@ -26,7 +26,7 @@ public class Main {
                 "potap@gmail.com", null);
         Professor professor = new Professor("Leonardo", "Di Caprio", null);
 
-        Subject subject = new Subject("Programming", "Very interisting subject");
+        Subject subject = new Subject("Art", "Very interisting art");
 
         Exam exam = new Exam("Programming", new Date(2023 - 23 - 05), "Exam for programming", null, 40);
         Payment payment = new Payment("Monobank", null, null, new Date(2023 - 12 - 01));
@@ -58,6 +58,12 @@ public class Main {
 
         MedicalService vaccineService = new VaccineServiceImpl();
 
+        ManyToManyService studentsExamsService =  new StudentsExamsServiceImpl();
+
+        ManyToManyService subjectsSpecialitiesService =  new SubjectSpecialityServiceImpl();
+
+        ManyToManyService subjectsProfessorsService =  new SubjectsProfessorsServiceImpl();
+
         healthRecordService.create(healthRecord);
         allergy.setHealthRecordId(healthRecord.getId());
         allergyService.create(allergy);
@@ -86,6 +92,14 @@ public class Main {
         payment.setPriceId(price.getId());
         payment.setStudentId(student.getId());
         paymentService.create(payment);
+
+        subjectService.create(subject);
+
+
+        //many-to-many
+        studentsExamsService.create(student, exam);
+        subjectsProfessorsService.create(subject, professor);
+        subjectsSpecialitiesService.create(speciality, subject);
 
         LOGGER.info("Allergy id " + allergy.getId());
         LOGGER.info("Vaccine id " + vaccine.getId());

@@ -13,7 +13,7 @@ public class SubjectRepositoryImpl implements AssessmentRepository<Subject> {
     @Override
     public void create(Subject subject) {
         Connection connection = CONNECTION_POOL.getConnection();
-        String insertInto = "INSERT INTO subjects(title,description) values (?,?)";
+        String insertInto = "INSERT INTO subjects(title,decription) values (?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertInto, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, subject.getTitle());
