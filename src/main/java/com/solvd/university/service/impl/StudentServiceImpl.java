@@ -17,6 +17,7 @@ public class StudentServiceImpl implements PersonService<Student> {
     public void create(Student student) {
         student.setId(null);
         studentRepository.create(student);
+
     }
 
     public void delete(Student student) {

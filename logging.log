@@ -42,3 +42,63 @@
 11:57:41.209 [main] INFO  com.solvd.university.Main - Professor id 19
 11:57:41.209 [main] INFO  com.solvd.university.Main - Exam id 17
 11:57:41.210 [main] INFO  com.solvd.university.Main - Payment id 7
+17:14:42.027 [main] INFO  com.solvd.university.Main - Allergy id 46
+17:14:42.032 [main] INFO  com.solvd.university.Main - Vaccine id 39
+17:14:42.032 [main] INFO  com.solvd.university.Main - Health Record id 52
+17:14:42.032 [main] INFO  com.solvd.university.Main - University id 39
+17:14:42.032 [main] INFO  com.solvd.university.Main - Faculty id 24
+17:14:42.033 [main] INFO  com.solvd.university.Main - Cafedra id 22
+17:14:42.033 [main] INFO  com.solvd.university.Main - Speciality id 41
+17:14:42.034 [main] INFO  com.solvd.university.Main - Price id 23
+17:14:42.034 [main] INFO  com.solvd.university.Main - Student id35
+17:14:42.034 [main] INFO  com.solvd.university.Main - Professor id 20
+17:14:42.034 [main] INFO  com.solvd.university.Main - Exam id 18
+17:14:42.035 [main] INFO  com.solvd.university.Main - Payment id 8
+17:16:01.378 [main] INFO  com.solvd.university.Main - Allergy id 47
+17:16:01.382 [main] INFO  com.solvd.university.Main - Vaccine id 40
+17:16:01.382 [main] INFO  com.solvd.university.Main - Health Record id 53
+17:16:01.382 [main] INFO  com.solvd.university.Main - University id 40
+17:16:01.382 [main] INFO  com.solvd.university.Main - Faculty id 25
+17:16:01.383 [main] INFO  com.solvd.university.Main - Cafedra id 23
+17:16:01.383 [main] INFO  com.solvd.university.Main - Speciality id 43
+17:16:01.383 [main] INFO  com.solvd.university.Main - Price id 24
+17:16:01.383 [main] INFO  com.solvd.university.Main - Student id36
+17:16:01.384 [main] INFO  com.solvd.university.Main - Professor id 21
+17:16:01.384 [main] INFO  com.solvd.university.Main - Exam id 19
+17:16:01.384 [main] INFO  com.solvd.university.Main - Payment id 9
+17:17:24.945 [main] INFO  com.solvd.university.Main - Allergy id 48
+17:17:24.949 [main] INFO  com.solvd.university.Main - Vaccine id 41
+17:17:24.950 [main] INFO  com.solvd.university.Main - Health Record id 54
+17:17:24.950 [main] INFO  com.solvd.university.Main - University id 41
+17:17:24.950 [main] INFO  com.solvd.university.Main - Faculty id 26
+17:17:24.950 [main] INFO  com.solvd.university.Main - Cafedra id 24
+17:17:24.951 [main] INFO  com.solvd.university.Main - Speciality id 45
+17:17:24.951 [main] INFO  com.solvd.university.Main - Price id 25
+17:17:24.951 [main] INFO  com.solvd.university.Main - Student id37
+17:17:24.951 [main] INFO  com.solvd.university.Main - Professor id 22
+17:17:24.952 [main] INFO  com.solvd.university.Main - Exam id 20
+17:17:24.952 [main] INFO  com.solvd.university.Main - Payment id 10
+18:07:58.515 [main] INFO  com.solvd.university.Main - Allergy id 49
+18:07:58.519 [main] INFO  com.solvd.university.Main - Vaccine id 42
+18:07:58.520 [main] INFO  com.solvd.university.Main - Health Record id 55
+18:07:58.520 [main] INFO  com.solvd.university.Main - University id 42
+18:07:58.520 [main] INFO  com.solvd.university.Main - Faculty id 27
+18:07:58.520 [main] INFO  com.solvd.university.Main - Cafedra id 25
+18:07:58.520 [main] INFO  com.solvd.university.Main - Speciality id 47
+18:07:58.521 [main] INFO  com.solvd.university.Main - Price id 26
+18:07:58.521 [main] INFO  com.solvd.university.Main - Student id38
+18:07:58.521 [main] INFO  com.solvd.university.Main - Professor id 23
+18:07:58.521 [main] INFO  com.solvd.university.Main - Exam id 21
+18:07:58.522 [main] INFO  com.solvd.university.Main - Payment id 11
+22:45:32.184 [main] INFO  com.solvd.university.Main - Allergy id 56
+22:45:32.189 [main] INFO  com.solvd.university.Main - Vaccine id 49
+22:45:32.189 [main] INFO  com.solvd.university.Main - Health Record id 62
+22:45:32.189 [main] INFO  com.solvd.university.Main - University id 49
+22:45:32.190 [main] INFO  com.solvd.university.Main - Faculty id 34
+22:45:32.190 [main] INFO  com.solvd.university.Main - Cafedra id 32
+22:45:32.190 [main] INFO  com.solvd.university.Main - Speciality id 61
+22:45:32.191 [main] INFO  com.solvd.university.Main - Price id 33
+22:45:32.192 [main] INFO  com.solvd.university.Main - Student id45
+22:45:32.192 [main] INFO  com.solvd.university.Main - Professor id 30
+22:45:32.193 [main] INFO  com.solvd.university.Main - Exam id 28
+22:45:32.193 [main] INFO  com.solvd.university.Main - Payment id 18
