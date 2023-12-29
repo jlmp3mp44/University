@@ -19,6 +19,10 @@ public class CafedraRepositoryMyBatisImpl implements EducationalRepository<Cafed
             EducationalRepository<Cafedra> cafedraRepository =  sqlSession.getMapper(EducationalRepository.class);
             cafedraRepository.create(cafedra);
         }
+        catch (Exception e){
+            System.out.println("Error creating a cafedra: " + e.getMessage());
+            e.printStackTrace(); //
+        }
     }
 
 

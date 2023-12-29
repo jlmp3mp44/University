@@ -13,6 +13,10 @@ public class AllergyRepositoryMyBatisImpl implements MedicalRepository<Allergy> 
             MedicalRepository<Allergy> allergyRepository = sqlSession.getMapper(MedicalRepository.class);
             allergyRepository.create(allergy);
         }
+        catch (Exception e){
+            System.out.println("Error creating a alleergy: " + e.getMessage());
+            e.printStackTrace(); //
+        }
     }
 
 

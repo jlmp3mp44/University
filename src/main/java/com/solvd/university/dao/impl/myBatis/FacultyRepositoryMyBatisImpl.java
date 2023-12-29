@@ -20,6 +20,10 @@ public class FacultyRepositoryMyBatisImpl implements EducationalRepository<Facul
             EducationalRepository<Faculty> facultyRepository = sqlSession.getMapper(EducationalRepository.class);
             facultyRepository.create(faculty);
         }
+        catch (Exception e){
+            System.out.println("Error creating a faculty: " + e.getMessage());
+            e.printStackTrace(); //
+        }
     }
 
     @Override

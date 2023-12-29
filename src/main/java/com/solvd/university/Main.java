@@ -71,6 +71,7 @@ public class Main {
         paymentService.create(payment);
 
         healthRecordService.create(healthRecord);
+
         allergy.setHealthRecordId(healthRecord.getId());
         allergyService.create(allergy);
         vaccine.setHealthRecordId(healthRecord.getId());

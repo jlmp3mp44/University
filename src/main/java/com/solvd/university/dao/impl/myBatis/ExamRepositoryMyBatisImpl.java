@@ -16,6 +16,10 @@ public class ExamRepositoryMyBatisImpl implements AssessmentRepository<Exam> {
             AssessmentRepository<Exam> examRepository = sqlSession.getMapper(AssessmentRepository.class);
             examRepository.create(exam);
         }
+        catch (Exception e){
+            System.out.println("Error creating a exam: " + e.getMessage());
+            e.printStackTrace(); //
+        }
     }
 
     @Override

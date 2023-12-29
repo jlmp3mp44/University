@@ -14,6 +14,10 @@ public class VaccineRepositoryMyBatisImpl implements MedicalRepository<Vaccine> 
             MedicalRepository<Vaccine> vaccineRepository = sqlSession.getMapper(MedicalRepository.class);
             vaccineRepository.create(vaccine);
         }
+        catch (Exception e){
+            System.out.println("Error creating a vaccine: " + e.getMessage());
+            e.printStackTrace(); //
+        }
     }
 
     @Override
