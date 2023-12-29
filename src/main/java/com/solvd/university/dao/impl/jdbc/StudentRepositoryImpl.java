@@ -1,4 +1,4 @@
-package com.solvd.university.dao.impl;
+package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
 import com.solvd.university.dao.PersonRepository;
@@ -8,6 +8,7 @@ import com.solvd.university.model.exceptions.ProcessException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class StudentRepositoryImpl implements PersonRepository <Student> {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
@@ -23,7 +24,7 @@ public class StudentRepositoryImpl implements PersonRepository <Student> {
             preparedStatement.setString(2, student.getSurname());
             preparedStatement.setString(3, student.getPhoneNumber());
             preparedStatement.setString(4, student.getEmail());
-            preparedStatement.setLong(5, student.getHealthRecordID());
+            preparedStatement.setLong(5, student.getHealthRecordId());
             preparedStatement.executeUpdate();
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -53,8 +54,8 @@ public class StudentRepositoryImpl implements PersonRepository <Student> {
     }
 
     @Override
-    public List<Student> findAll() {
-        List<Student> students = new ArrayList<>();
+    public List<Optional<Student>> findAll() {
+        List<Optional<Student>> students = new ArrayList<>();
         Connection connection = CONNECTION_POOL.getConnection();
         String findAll = "SELECT * FROM students";
         try {
@@ -68,7 +69,7 @@ public class StudentRepositoryImpl implements PersonRepository <Student> {
                 String email =  resultSet.getString("email");
                 Long healthRecordId =  resultSet.getLong("health_record_id");
 
-                Student student = new Student(name, surname, phoneNumber, email, healthRecordId);
+                Optional<Student> student = Optional.of(new Student(name, surname, phoneNumber, email, healthRecordId));
                 students.add(student);
             }
         } catch (SQLException e) {

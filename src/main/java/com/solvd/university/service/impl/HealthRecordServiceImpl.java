@@ -1,7 +1,7 @@
 package com.solvd.university.service.impl;
 
 import com.solvd.university.dao.MedicalRepository;
-import com.solvd.university.dao.impl.HealthRecordRepositoryImpl;
+import com.solvd.university.dao.impl.myBatis.HealthRecordRepositoryMyBatisImpl;
 import com.solvd.university.model.HealthRecord;
 import com.solvd.university.service.MedicalService;
 
@@ -10,7 +10,7 @@ public class HealthRecordServiceImpl implements MedicalService<HealthRecord> {
     private final MedicalRepository healthRecordRepository;
 
     public HealthRecordServiceImpl() {
-        this.healthRecordRepository = new HealthRecordRepositoryImpl();
+        this.healthRecordRepository = new HealthRecordRepositoryMyBatisImpl();
     }
 
     public void create(HealthRecord healthRecord) {

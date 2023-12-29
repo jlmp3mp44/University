@@ -6,14 +6,14 @@ public class Student {
     private String surname;
     private String phoneNumber;
     private String email;
-    private Long healthRecordID;
+    private Long healthRecordId;
 
-    public Student(String name, String surname, String phoneNumber, String email, Long healthRecordID) {
+    public Student(String name, String surname, String phoneNumber, String email, Long healthRecordId) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.healthRecordID = healthRecordID;
+        this.healthRecordId = healthRecordId;
     }
 
     public Long getId() {
@@ -56,11 +56,11 @@ public class Student {
         this.email = email;
     }
 
-    public Long getHealthRecordID() {
-        return healthRecordID;
+    public Long getHealthRecordId() {
+        return healthRecordId;
     }
 
-    public void setHealthRecordID(Long healthRecordID) {
-        this.healthRecordID = healthRecordID;
+    public void setHealthRecordId(Long healthRecordId) {
+        this.healthRecordId = healthRecordId;
     }
 }

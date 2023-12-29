@@ -1,7 +1,8 @@
 package com.solvd.university.service.impl;
 
 import com.solvd.university.dao.AssessmentRepository;
-import com.solvd.university.dao.impl.ExamRepositoryImpl;
+import com.solvd.university.dao.impl.jdbc.ExamRepositoryImpl;
+import com.solvd.university.dao.impl.myBatis.ExamRepositoryMyBatisImpl;
 import com.solvd.university.model.Exam;
 import com.solvd.university.service.AssesstmentService;
 
@@ -9,7 +10,7 @@ public class ExamServiceImpl implements AssesstmentService<Exam> {
     private final AssessmentRepository examRepository;
 
     public ExamServiceImpl() {
-        this.examRepository = new ExamRepositoryImpl();
+        this.examRepository = new ExamRepositoryMyBatisImpl();
     }
 
     public void create(Exam exam) {

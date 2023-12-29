@@ -10,8 +10,10 @@ import java.sql.Date;
 
 public class Main {
     public static void main(String[] args) {
+
+
         Logger LOGGER = LogManager.getLogger(Main.class);
-        HealthRecord healthRecord = new HealthRecord("Healthy");
+        HealthRecord healthRecord = new HealthRecord("VERY HEALTHY");
         Allergy allergy = new Allergy("Flowers", "Akwater", new Date(2023 - 12 - 11), null);
         Vaccine vaccine = new Vaccine("Stolbnyak", "Vaccine from stolbnyak", new Date(2011 - 05 - 06), null);
 
@@ -22,7 +24,7 @@ public class Main {
         Speciality speciality2 = new Speciality("126", "Awesome speciality", null);
         Price price = new Price(35000, null);
 
-        Student student = new Student("Dima", "Potap", "026313161",
+        Student student = new Student("ALEX", "ZELENSKIY", "026313161",
                 "potap@gmail.com", null);
         Professor professor = new Professor("Leonardo", "Di Caprio", null);
 
@@ -64,7 +66,12 @@ public class Main {
 
         ManyToManyService subjectsProfessorsService =  new SubjectsProfessorsServiceImpl();
 
+
+        priceService.create(price);
+        paymentService.create(payment);
+
         healthRecordService.create(healthRecord);
+
         allergy.setHealthRecordId(healthRecord.getId());
         allergyService.create(allergy);
         vaccine.setHealthRecordId(healthRecord.getId());
@@ -82,7 +89,7 @@ public class Main {
         price.setSpecialityId(speciality.getId());
         priceService.create(price);
 
-        student.setHealthRecordID(healthRecord.getId());
+        student.setHealthRecordId(healthRecord.getId());
         studentService.create(student);
         professor.setCafedraId(cafedra.getId());
         professorService.create(professor);
@@ -115,14 +122,14 @@ public class Main {
         LOGGER.info("Payment id " + payment.getId());
 
         allergy.setPills("Akwa");
-        vaccine.setDate(new Date(2017 - 05 - 04));
+        vaccine.setData(new Date(2017 - 05 - 04));
 
-        healthRecordService.findById(12L);
+        /*healthRecordService.findById(12L);
         allergyService.update(allergy);
         vaccineService.update(vaccine);
         universityService.findAll();
         facultyService.findAll();
         specialityService.update(speciality);
-        subjectService.findById(3l);
+        subjectService.findById(3l);*/
     }
 }

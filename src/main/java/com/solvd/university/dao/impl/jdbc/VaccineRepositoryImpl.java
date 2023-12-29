@@ -1,4 +1,4 @@
-package com.solvd.university.dao.impl;
+package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
 import com.solvd.university.dao.MedicalRepository;
@@ -18,7 +18,7 @@ public class VaccineRepositoryImpl implements MedicalRepository<Vaccine> {
             PreparedStatement preparedStatement = connection.prepareStatement(insertInto, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, vaccine.getTitle());
             preparedStatement.setString(2, vaccine.getDescription());
-            preparedStatement.setDate(3, vaccine.getDate());
+            preparedStatement.setDate(3, vaccine.getData());
             preparedStatement.setLong(4, vaccine.getHealthRecordId());
             preparedStatement.executeUpdate();
 

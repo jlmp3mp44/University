@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.university.dao.MedicalRepository">
+
+    <insert id="create"  keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO allergies(title, pills, date, health_record_id)  VALUES ( #{title}, #{pills},
+        #{date}, #{healthRecordId})
+    </insert>
+
+    <update id="update">
+        UPDATE allergies SET pills =#{pills} WHERE id = #{id}
+    </update>
+
+
+</mapper>
