@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.university.dao.MedicalRepository">
+
+    <insert id="createHealthRecord"  keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO health_records(medical_report)  VALUES (#{medicalReport})
+    </insert>
+
+    <update id="updateHealthRecord">
+        UPDATE health_records SET medical_report = #{medicalReport} WHERE health_record_id = #{id}
+    </update>
+
+    <select id="findHealthRecordById" resultMap="HealthRecordResultMap">
+        SELECT * FROM  exams WHERE id = #{id}
+    </select>
+    
+    <resultMap id="HealthRecordResultMap" type="com.solvd.university.model.HealthRecord">
+        <id column="id" property="id"></id>
+        <result column="medical_report" property="medicalReport"></result>
+    </resultMap>
+</mapper>

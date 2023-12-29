@@ -11,7 +11,7 @@
 
     </Appenders>
     <Loggers>
-        <Logger name="com.solvd.university.Main" level="debug">
+        <Logger name="com.solvd.university.Main" level="trace">
             <AppenderRef ref="Console"/>
             <AppenderRef ref="File"/>
         </Logger>

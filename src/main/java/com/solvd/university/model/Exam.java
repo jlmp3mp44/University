@@ -5,15 +5,15 @@ import java.sql.Date;
 public class Exam {
     private Long id;
     private String title;
-    private Date date;
+    private Date data;
     private String description;
     private Long specialityId;
     private int time;
 
 
-    public Exam(String title, Date date, String descpription, Long specialityId, int time) {
+    public Exam(String title, Date data, String descpription, Long specialityId, int time) {
         this.title = title;
-        this.date = date;
+        this.data = data;
         this.description = descpription;
         this.specialityId = specialityId;
         this.time = time;
@@ -35,12 +35,12 @@ public class Exam {
         this.title = title;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getData() {
+        return data;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setData(Date data) {
+        this.data = data;
     }
 
     public String getDescription() {

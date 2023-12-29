@@ -1,7 +1,8 @@
 package com.solvd.university.service.impl;
 
 import com.solvd.university.dao.EducationalRepository;
-import com.solvd.university.dao.impl.FacultyRepositoryImpl;
+import com.solvd.university.dao.impl.jdbc.FacultyRepositoryImpl;
+import com.solvd.university.dao.impl.myBatis.FacultyRepositoryMyBatisImpl;
 import com.solvd.university.model.Faculty;
 import com.solvd.university.service.EducationalService;
 
@@ -12,7 +13,7 @@ public class FacultyServiceImpl implements EducationalService<Faculty> {
     private final EducationalRepository facultyRepository;
 
     public FacultyServiceImpl() {
-        this.facultyRepository = new FacultyRepositoryImpl();
+        this.facultyRepository = new FacultyRepositoryMyBatisImpl();
     }
 
     public void create(Faculty faculty) {

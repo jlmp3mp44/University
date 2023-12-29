@@ -1,4 +1,4 @@
-package com.solvd.university.dao.impl;
+package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.AssessmentRepository;
 import com.solvd.university.dao.ConnectionPool;
@@ -17,7 +17,7 @@ public class ExamRepositoryImpl implements AssessmentRepository<Exam> {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertInto, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, exam.getTitle());
-            preparedStatement.setDate(2, exam.getDate());
+            preparedStatement.setDate(2, exam.getData());
             preparedStatement.setString(3, exam.getDescription());
             preparedStatement.setLong(4, exam.getSpecialityId());
             preparedStatement.setInt(5, exam.getTime());

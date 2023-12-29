@@ -1,57 +1,57 @@
-package com.solvd.university.dao.impl;
+package com.solvd.university.dao.impl.jdbc;
 
+import com.solvd.university.dao.AssessmentRepository;
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.PriceRepository;
-import com.solvd.university.model.Price;
+import com.solvd.university.model.Subject;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.*;
 
-public class PriceRepositoryImpl implements PriceRepository {
+public class SubjectRepositoryImpl implements AssessmentRepository<Subject> {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override
-    public void create(Price price) {
+    public void create(Subject subject) {
         Connection connection = CONNECTION_POOL.getConnection();
-        String insertInto = "INSERT INTO prices(cost, speciality_id) values (?,?)";
+        String insertInto = "INSERT INTO subjects(title,decription) values (?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertInto, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setInt(1, price.getCost());
-            preparedStatement.setLong(2, price.getSpecialityId());
+            preparedStatement.setString(1, subject.getTitle());
+            preparedStatement.setString(2, subject.getDescription());
             preparedStatement.executeUpdate();
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
             while (resultSet.next()) {
-                price.setId(resultSet.getLong(1));
+                subject.setId(resultSet.getLong(1));
             }
         } catch (SQLException e) {
-            throw new ProcessException("Can`t create a price", e);
+            throw new ProcessException("Can`t create a subject", e);
         } finally {
             CONNECTION_POOL.releaseConnection(connection);
         }
     }
 
     @Override
-    public Price findById(Long priceId) {
-        Price price = null;
+    public Subject findById(Long id) {
+        Subject subject = null;
         Connection connection = CONNECTION_POOL.getConnection();
         try {
-            String selectById = "SELECT * FROM  prices WHERE id = ?";
+            String selectById = "SELECT * FROM  subjects WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(selectById);
-            preparedStatement.setLong(1, priceId);
+            preparedStatement.setLong(1, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                Integer cost = resultSet.getInt("cost");
-                Long specialityId = resultSet.getLong("speciality_id");
-                price = new Price(cost, specialityId);
+                String title = resultSet.getString("title");
+                String description = resultSet.getString("description");
+                subject = new Subject(title, description);
             }
 
         } catch (SQLException e) {
-            throw new ProcessException("Can`t find a price", e);
+            throw new ProcessException("Can`t find a subject", e);
         } finally {
             CONNECTION_POOL.releaseConnection(connection);
         }
-        return price;
+        return subject;
     }
 }

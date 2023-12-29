@@ -1,4 +1,4 @@
-package com.solvd.university.dao.impl;
+package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
 import com.solvd.university.dao.PersonRepository;
@@ -8,6 +8,7 @@ import com.solvd.university.model.exceptions.ProcessException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ProfessorRepositoryImpl implements PersonRepository<Professor> {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
@@ -35,8 +36,8 @@ public class ProfessorRepositoryImpl implements PersonRepository<Professor> {
     }
 
     @Override
-    public List<Professor> findAll() {
-        List<Professor> professors = new ArrayList<>();
+    public List<Optional<Professor>> findAll() {
+        List<Optional<Professor>> professors = new ArrayList<>();
         Connection connection = CONNECTION_POOL.getConnection();
         String findAll = "SELECT * FROM proffessors";
         try {
@@ -48,7 +49,7 @@ public class ProfessorRepositoryImpl implements PersonRepository<Professor> {
                 String surname = resultSet.getString("surname");
                 Long cafedraId = resultSet.getLong("cafedra_id");
 
-                Professor professor = new Professor(name, surname, cafedraId);
+                Optional<Professor> professor = Optional.of(new Professor(name, surname, cafedraId));
                 professors.add(professor);
             }
         } catch (SQLException e) {
