@@ -1,7 +1,7 @@
 package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.PersonRepository;
+import com.solvd.university.dao.ProfessorRepository;
 import com.solvd.university.model.Professor;
 import com.solvd.university.model.exceptions.ProcessException;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class ProfessorRepositoryImpl implements PersonRepository<Professor> {
+public class ProfessorRepositoryImpl implements ProfessorRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override
@@ -59,6 +59,7 @@ public class ProfessorRepositoryImpl implements PersonRepository<Professor> {
         }
         return professors;
     }
+
     @Override
     public void delete(Professor professor) {
         Connection connection = CONNECTION_POOL.getConnection();

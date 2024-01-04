@@ -1,13 +1,13 @@
 package com.solvd.university.dao.impl.jdbc;
 
+import com.solvd.university.dao.CafedraRepository;
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.EducationalRepository;
 import com.solvd.university.model.Cafedra;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.*;
 
-public class CafedraRepositoryImpl implements EducationalRepository<Cafedra> {
+public class CafedraRepositoryImpl implements CafedraRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override

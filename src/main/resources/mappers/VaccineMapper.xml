@@ -3,15 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.solvd.university.dao.PersonRepository">
-
-    <insert id="create"  keyColumn="id" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO vaccines(title, description, data, health_record_id) VALUES (#{title}, #{description},
-                            #{data}, #{healthRecordId})
+<mapper namespace="com.solvd.university.dao.VaccineRepository">
+    <insert id="create" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO vaccines(title, description, data, health_record_id)
+        VALUES (#{title}, #{description}, #{data}, #{healthRecordId})
     </insert>
 
     <update id="update">
         UPDATE vaccines SET title = #{title} WHERE id = #{id}
     </update>
-
 </mapper>

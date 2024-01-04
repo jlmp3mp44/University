@@ -33,5 +33,6 @@
         <mapper resource="mappers/SubjectSpecialityMapper.xml"/>
         <mapper resource="mappers/UniversityMapper.xml"/>
         <mapper resource="mappers/VaccineMapper.xml"/>
+        <mapper resource="mappers/SubjectMapper.xml"/>
     </mappers>
 </configuration>

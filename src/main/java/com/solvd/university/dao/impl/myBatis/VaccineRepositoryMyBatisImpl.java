@@ -1,20 +1,18 @@
 package com.solvd.university.dao.impl.myBatis;
 
 import com.solvd.university.dao.ConfigMyBatis;
-import com.solvd.university.dao.MedicalRepository;
+import com.solvd.university.dao.VaccineRepository;
 import com.solvd.university.model.Vaccine;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.session.SqlSession;
 
-public class VaccineRepositoryMyBatisImpl implements MedicalRepository<Vaccine> {
+public class VaccineRepositoryMyBatisImpl implements VaccineRepository {
 
     @Override
     public void create(Vaccine vaccine) {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
-            MedicalRepository<Vaccine> vaccineRepository = sqlSession.getMapper(MedicalRepository.class);
+            VaccineRepository vaccineRepository = sqlSession.getMapper(VaccineRepository.class);
             vaccineRepository.create(vaccine);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error creating a vaccine: " + e.getMessage());
             e.printStackTrace(); //
         }
@@ -23,7 +21,7 @@ public class VaccineRepositoryMyBatisImpl implements MedicalRepository<Vaccine> 
     @Override
     public void update(Vaccine vaccine) {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
-            MedicalRepository<Vaccine> vaccineRepository = sqlSession.getMapper(MedicalRepository.class);
+            VaccineRepository vaccineRepository = sqlSession.getMapper(VaccineRepository.class);
             vaccineRepository.update(vaccine);
         }
     }

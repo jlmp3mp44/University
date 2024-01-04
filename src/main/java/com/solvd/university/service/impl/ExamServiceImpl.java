@@ -1,20 +1,19 @@
 package com.solvd.university.service.impl;
 
-import com.solvd.university.dao.AssessmentRepository;
-import com.solvd.university.dao.impl.jdbc.ExamRepositoryImpl;
+import com.solvd.university.dao.ExamRepository;
 import com.solvd.university.dao.impl.myBatis.ExamRepositoryMyBatisImpl;
 import com.solvd.university.model.Exam;
 import com.solvd.university.service.AssesstmentService;
 
 public class ExamServiceImpl implements AssesstmentService<Exam> {
-    private final AssessmentRepository examRepository;
+    private final ExamRepository examRepository;
 
     public ExamServiceImpl() {
         this.examRepository = new ExamRepositoryMyBatisImpl();
     }
 
     public void create(Exam exam) {
-        if(exam.getTitle()!=null) {
+        if (exam.getTitle() != null) {
             exam.setId(null);
             examRepository.create(exam);
         }

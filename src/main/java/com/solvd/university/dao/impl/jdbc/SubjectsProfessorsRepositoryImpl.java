@@ -1,12 +1,7 @@
 package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.ManyToManyRepository;
-import com.solvd.university.dao.PersonRepository;
-import com.solvd.university.model.Exam;
-import com.solvd.university.model.Professor;
-import com.solvd.university.model.Student;
-import com.solvd.university.model.Subject;
+import com.solvd.university.dao.SubjectsProfessorsRepository;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.Connection;
@@ -14,17 +9,17 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class SubjectsProfessorsRepositoryImpl implements ManyToManyRepository<Subject, Professor> {
+public class SubjectsProfessorsRepositoryImpl implements SubjectsProfessorsRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override
-    public void create(Subject subject, Professor professor) {
+    public void create(Long subjectId, Long professorId) {
         Connection connection = CONNECTION_POOL.getConnection();
         String insertInto = "INSERT INTO proffessors_subjects(proffessor_id, subject_id) values (?,?)";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(insertInto, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setLong(1, professor.getId());
-            preparedStatement.setLong(2, subject.getId());
+            preparedStatement.setLong(1, professorId);
+            preparedStatement.setLong(2, subjectId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
