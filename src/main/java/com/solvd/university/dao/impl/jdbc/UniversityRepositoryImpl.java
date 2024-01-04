@@ -1,7 +1,7 @@
 package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.EducationalRepository;
+import com.solvd.university.dao.UniversityRepository;
 import com.solvd.university.model.University;
 import com.solvd.university.model.exceptions.ProcessException;
 
@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UniversityRepositoryImpl implements EducationalRepository<University> {
+public class UniversityRepositoryImpl implements UniversityRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override

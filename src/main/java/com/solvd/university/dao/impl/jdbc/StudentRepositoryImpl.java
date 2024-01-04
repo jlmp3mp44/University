@@ -1,7 +1,7 @@
 package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.PersonRepository;
+import com.solvd.university.dao.StudentRepository;
 import com.solvd.university.model.Student;
 import com.solvd.university.model.exceptions.ProcessException;
 
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class StudentRepositoryImpl implements PersonRepository <Student> {
+public class StudentRepositoryImpl implements StudentRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override
@@ -66,8 +66,8 @@ public class StudentRepositoryImpl implements PersonRepository <Student> {
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
                 String phoneNumber = resultSet.getString("phone_number");
-                String email =  resultSet.getString("email");
-                Long healthRecordId =  resultSet.getLong("health_record_id");
+                String email = resultSet.getString("email");
+                Long healthRecordId = resultSet.getLong("health_record_id");
 
                 Optional<Student> student = Optional.of(new Student(name, surname, phoneNumber, email, healthRecordId));
                 students.add(student);

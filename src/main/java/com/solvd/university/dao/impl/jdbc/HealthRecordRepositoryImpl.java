@@ -1,13 +1,13 @@
 package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
-import com.solvd.university.dao.MedicalRepository;
+import com.solvd.university.dao.HealthRecordRepository;
 import com.solvd.university.model.HealthRecord;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.*;
 
-public class HealthRecordRepositoryImpl implements MedicalRepository<HealthRecord> {
+public class HealthRecordRepositoryImpl implements HealthRecordRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
 
     @Override

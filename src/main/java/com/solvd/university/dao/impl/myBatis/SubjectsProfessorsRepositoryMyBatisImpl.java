@@ -1,20 +1,17 @@
 package com.solvd.university.dao.impl.myBatis;
 
 import com.solvd.university.dao.ConfigMyBatis;
-import com.solvd.university.dao.ManyToManyRepository;
-import com.solvd.university.model.Professor;
-import com.solvd.university.model.Speciality;
-import com.solvd.university.model.Subject;
-import org.apache.ibatis.annotations.Insert;
+import com.solvd.university.dao.SubjectsProfessorsRepository;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 
-public class SubjectsProfessorsRepositoryMyBatisImpl implements ManyToManyRepository<Subject, Professor> {
+public class SubjectsProfessorsRepositoryMyBatisImpl implements SubjectsProfessorsRepository {
     @Override
-    @Insert("createSubjectsProfessors")
-    public void create(Subject subject, Professor professor) {
+    public void create(@Param("subjectId") Long subjectId, @Param("professorId") Long professorId) {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
-            ManyToManyRepository<Subject, Professor> subjectProfessorRepository = sqlSession.getMapper(ManyToManyRepository.class);
-            subjectProfessorRepository.create(subject, professor);
+            SubjectsProfessorsRepository subjectProfessorRepository =
+                    sqlSession.getMapper(SubjectsProfessorsRepository.class);
+            subjectProfessorRepository.create(subjectId, professorId);
         }
     }
 }
