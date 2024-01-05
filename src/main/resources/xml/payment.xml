@@ -1,0 +1,7 @@
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../xsd/payment.xsd">
+    <bankTitle>MonoBank</bankTitle>
+    <priceId>1</priceId>
+    <studentId>1</studentId>
+    <data>2017-09-04</data>
+</payment>

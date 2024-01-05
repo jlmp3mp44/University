@@ -11,9 +11,6 @@ public class PriceRepositoryMyBatisImpl implements PriceRepository {
     public void create(Price price) {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             sqlSession.getMapper(PriceRepository.class).create(price);
-        } catch (Exception e) {
-            System.out.println("Error creating a price: " + e.getMessage());
-            e.printStackTrace(); //
         }
     }
 

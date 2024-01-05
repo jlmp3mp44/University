@@ -11,9 +11,6 @@ public class ExamRepositoryMyBatisImpl implements ExamRepository {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             ExamRepository examRepository = sqlSession.getMapper(ExamRepository.class);
             examRepository.create(exam);
-        } catch (Exception e) {
-            System.out.println("Error creating a exam: " + e.getMessage());
-            e.printStackTrace(); //
         }
     }
 

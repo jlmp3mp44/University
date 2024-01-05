@@ -12,9 +12,6 @@ public class HealthRecordRepositoryMyBatisImpl implements HealthRecordRepository
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             HealthRecordRepository healthRecordRepository = sqlSession.getMapper(HealthRecordRepository.class);
             healthRecordRepository.create(healthRecord);
-        } catch (Exception e) {
-            System.out.println("Error creating a healthRecord: " + e.getMessage());
-            e.printStackTrace(); //
         }
     }
 

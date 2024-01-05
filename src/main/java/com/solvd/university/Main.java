@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -124,12 +125,15 @@ public class Main {
         allergy.setPills("Akwa");
         vaccine.setData(new Date(2017 - 05 - 04));
 
-        /*healthRecordService.findById(12L);
+        healthRecordService.findById(12L);
         allergyService.update(allergy);
         vaccineService.update(vaccine);
-        universityService.findAll();
-        facultyService.findAll();
+        List<University> universities =  universityService.findAll();
+        //List<Faculty> faculties = facultyService.findAll();
         specialityService.update(speciality);
-        subjectService.findById(3l);*/
+        subjectService.findById(1l);
+
+
+
     }
 }

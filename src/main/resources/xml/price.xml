@@ -1,0 +1,5 @@
+<price xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../xsd/price.xsd">
+    <cost>300</cost>
+    <specialityId>1</specialityId>
+</price>

@@ -12,9 +12,6 @@ public class VaccineRepositoryMyBatisImpl implements VaccineRepository {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             VaccineRepository vaccineRepository = sqlSession.getMapper(VaccineRepository.class);
             vaccineRepository.create(vaccine);
-        } catch (Exception e) {
-            System.out.println("Error creating a vaccine: " + e.getMessage());
-            e.printStackTrace(); //
         }
     }
 

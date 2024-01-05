@@ -7,11 +7,11 @@ public class Faculty {
     private String dekan;
     private Long universityId;
 
-    public Faculty(String title, String description, String dekan, Long univerityid) {
+    public Faculty(String title, String description, String dekan, Long universityId) {
         this.title = title;
         this.description = description;
         this.dekan = dekan;
-        this.universityId = univerityid;
+        this.universityId = universityId;
     }
 
     public Long getId() {
@@ -53,4 +53,5 @@ public class Faculty {
     public void setUniversityId(Long universityId) {
         this.universityId = universityId;
     }
+
 }

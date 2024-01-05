@@ -5,19 +5,21 @@
 
 <mapper namespace="com.solvd.university.dao.FacultyRepository">
 
-    <insert id="create"  keyColumn="id" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO faculties(title, description, dekan, university_id) VALUES (#{title}, #{description}, #{dekan},
-                                #{universityId})
+    <insert id="create" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        INSERT INTO faculties(title, description, dekan, university_id)
+        VALUES (#{title}, #{description}, #{dekan}, #{universityId})
     </insert>
+
 
 
     <select id="findAll" resultMap="FacultyResultMap">
         SELECT title, dekan  FROM faculties
     </select>
 
-    <resultMap id="FacultyResultMap" type="com.solvd.university.model.Faculty" autoMapping="false">
+    <resultMap id="FacultyResultMap" type="com.solvd.university.model.Faculty">
         <result column="title" property="title"/>
         <result column="dekan" property="dekan"/>
     </resultMap>
+
 
 </mapper>

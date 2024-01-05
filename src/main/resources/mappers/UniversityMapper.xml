@@ -13,7 +13,7 @@
         SELECT title, rector FROM universities
     </select>
 
-    <resultMap id="UniversityResultMap" type="com.solvd.university.model.University" autoMapping="false">
+    <resultMap id="UniversityResultMap" type="com.solvd.university.model.University">
         <result column="title" property="title"/>
         <result column="rector" property="rector"/>
     </resultMap>
