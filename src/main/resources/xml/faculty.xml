@@ -1,0 +1,7 @@
+<faculty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../xsd/faculty.xsd">
+    <title>300</title>
+    <description>1</description>
+    <dekan>Vasiliy</dekan>
+    <universityId>1</universityId>
+</faculty>

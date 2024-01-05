@@ -11,9 +11,6 @@ public class AllergyRepositoryMyBatisImpl implements AllergyRepository {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             AllergyRepository allergyRepository = sqlSession.getMapper(AllergyRepository.class);
             allergyRepository.create(allergy);
-        } catch (Exception e) {
-            System.out.println("Error creating an allergy: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -22,9 +19,6 @@ public class AllergyRepositoryMyBatisImpl implements AllergyRepository {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             AllergyRepository allergyRepository = sqlSession.getMapper(AllergyRepository.class);
             allergyRepository.update(allergy);
-        } catch (Exception e) {
-            System.out.println("Error updating an allergy: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }

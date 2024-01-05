@@ -11,12 +11,12 @@
 
 
     <select id="findById" resultMap="SubjectResultMap">
-        SELECT title, description FROM  subjects WHERE id = ?
+        SELECT title, decription FROM  subjects WHERE id = #{id}
     </select>
 
     <resultMap id="SubjectResultMap" type="com.solvd.university.model.Subject" autoMapping="false">
         <result column="title" property="title"/>
-        <result column="description" property="description"/>
+        <result column="decription" property="description"/>
     </resultMap>
 
 </mapper>

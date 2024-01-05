@@ -12,9 +12,6 @@ public class CafedraRepositoryMyBatisImpl implements CafedraRepository {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             CafedraRepository cafedraRepository = sqlSession.getMapper(CafedraRepository.class);
             cafedraRepository.create(cafedra);
-        } catch (Exception e) {
-            System.out.println("Error creating a cafedra: " + e.getMessage());
-            e.printStackTrace(); //
         }
     }
 

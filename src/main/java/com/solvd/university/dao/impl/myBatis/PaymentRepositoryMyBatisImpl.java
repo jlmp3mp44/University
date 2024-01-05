@@ -10,9 +10,6 @@ public class PaymentRepositoryMyBatisImpl implements PaymentRepository {
     public void create(Payment payment) {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             sqlSession.getMapper(PaymentRepository.class).create(payment);
-        } catch (Exception e) {
-            System.out.println("Error creating a payment: " + e.getMessage());
-            e.printStackTrace(); //
         }
     }
 
