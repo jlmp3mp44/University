@@ -1,11 +1,14 @@
 package com.solvd.university.service;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface EducationalService<T> {
+public interface Service <T> {
     void create(T t);
 
-    default List<T> findAll() {
+    default T findById(Long id){return null;}
+
+    default List<Optional<T>> findAll() {
         return null;
     }
 

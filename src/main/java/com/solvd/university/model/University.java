@@ -1,9 +1,15 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class University {
     private Long id;
     private String title;
     private String rector;
+    private List<Faculty> faculties;
+
+    public University() {
+    }
 
     public University(String title, String rector) {
         this.title = title;
@@ -32,5 +38,13 @@ public class University {
 
     public void setRector(String rector) {
         this.rector = rector;
+    }
+
+    public List<Faculty> getFaculties() {
+        return faculties;
+    }
+
+    public void setFaculties(List<Faculty> faculties) {
+        this.faculties = faculties;
     }
 }

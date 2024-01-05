@@ -6,6 +6,9 @@ public class Professor {
     private String surname;
     private Long cafedraId;
 
+    public Professor() {
+    }
+
     public Professor(String name, String surname, Long cafedraId) {
         this.name = name;
         this.surname = surname;

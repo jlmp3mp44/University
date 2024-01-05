@@ -3,9 +3,9 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.ExamRepository;
 import com.solvd.university.dao.impl.myBatis.ExamRepositoryMyBatisImpl;
 import com.solvd.university.model.Exam;
-import com.solvd.university.service.AssesstmentService;
+import com.solvd.university.service.Service;
 
-public class ExamServiceImpl implements AssesstmentService<Exam> {
+public class ExamServiceImpl implements Service<Exam> {
     private final ExamRepository examRepository;
 
     public ExamServiceImpl() {

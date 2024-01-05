@@ -9,6 +9,9 @@ public class Vaccine {
     private Date data;
     private Long healthRecordId;
 
+    public Vaccine() {
+    }
+
     public Vaccine(String title, String description, Date data, Long healthRecordId) {
         this.title = title;
         this.description = description;

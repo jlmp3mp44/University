@@ -19,7 +19,6 @@ public class CafedraRepositoryImpl implements CafedraRepository {
             PreparedStatement preparedStatement = connection.prepareStatement(insertInto, Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, cafedra.getTitle());
             preparedStatement.setString(2, cafedra.getDescription());
-            preparedStatement.setLong(3, cafedra.getFacultyId());
             preparedStatement.executeUpdate();
 
             ResultSet resultSet = preparedStatement.getGeneratedKeys();

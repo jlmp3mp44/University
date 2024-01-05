@@ -9,6 +9,9 @@ public class Allergy {
     private Date date;
     private Long healthRecordId;
 
+    public Allergy() {
+    }
+
     public Allergy(String title, String pills, Date date, Long healthRecordId) {
         this.title = title;
         this.pills = pills;

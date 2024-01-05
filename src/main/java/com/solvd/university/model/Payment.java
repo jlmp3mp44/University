@@ -9,6 +9,9 @@ public class Payment {
     private Long studentId;
     private Date data;
 
+    public Payment() {
+    }
+
     public Payment(String bankTitle, Long priceId, Long studentId, Date data) {
         this.bankTitle = bankTitle;
         this.priceId = priceId;

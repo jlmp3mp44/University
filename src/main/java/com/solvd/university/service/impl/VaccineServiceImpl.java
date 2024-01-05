@@ -3,9 +3,9 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.VaccineRepository;
 import com.solvd.university.dao.impl.myBatis.VaccineRepositoryMyBatisImpl;
 import com.solvd.university.model.Vaccine;
-import com.solvd.university.service.MedicalService;
+import com.solvd.university.service.Service;
 
-public class VaccineServiceImpl implements MedicalService<Vaccine> {
+public class VaccineServiceImpl implements Service<Vaccine> {
     private final VaccineRepository vaccineRepository;
 
     public VaccineServiceImpl() {

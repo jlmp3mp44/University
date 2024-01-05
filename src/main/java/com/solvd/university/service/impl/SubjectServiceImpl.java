@@ -3,9 +3,9 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.SubjectRepository;
 import com.solvd.university.dao.impl.myBatis.SubjectRepositoryMyBatisImpl;
 import com.solvd.university.model.Subject;
-import com.solvd.university.service.AssesstmentService;
+import com.solvd.university.service.Service;
 
-public class SubjectServiceImpl implements AssesstmentService<Subject> {
+public class SubjectServiceImpl implements Service<Subject> {
     private final SubjectRepository subjectRepository;
 
     public SubjectServiceImpl() {

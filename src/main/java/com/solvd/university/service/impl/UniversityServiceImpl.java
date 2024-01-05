@@ -3,11 +3,12 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.UniversityRepository;
 import com.solvd.university.dao.impl.myBatis.UniversityRepositoryMyBatisImpl;
 import com.solvd.university.model.University;
-import com.solvd.university.service.EducationalService;
+import com.solvd.university.service.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-public class UniversityServiceImpl implements EducationalService<University> {
+public class UniversityServiceImpl implements Service<University> {
     private final UniversityRepository universityRepository;
 
     public UniversityServiceImpl() {
@@ -21,7 +22,7 @@ public class UniversityServiceImpl implements EducationalService<University> {
         }
     }
 
-    public List<University> findAll() {
+    public List<Optional<University>> findAll() {
         return universityRepository.findAll();
     }
 }

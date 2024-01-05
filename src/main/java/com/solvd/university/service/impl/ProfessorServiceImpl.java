@@ -3,12 +3,12 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.ProfessorRepository;
 import com.solvd.university.dao.impl.myBatis.ProfessorRepositoryMyBatisImpl;
 import com.solvd.university.model.Professor;
-import com.solvd.university.service.PersonService;
+import com.solvd.university.service.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-public class ProfessorServiceImpl implements PersonService<Professor> {
+public class ProfessorServiceImpl implements Service<Professor> {
     private final ProfessorRepository professorRepository;
 
     public ProfessorServiceImpl() {

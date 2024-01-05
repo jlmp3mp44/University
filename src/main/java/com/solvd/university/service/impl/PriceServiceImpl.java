@@ -1,12 +1,11 @@
 package com.solvd.university.service.impl;
 
 import com.solvd.university.dao.PriceRepository;
-import com.solvd.university.dao.impl.jdbc.PriceRepositoryImpl;
 import com.solvd.university.dao.impl.myBatis.PriceRepositoryMyBatisImpl;
 import com.solvd.university.model.Price;
-import com.solvd.university.service.PriceService;
+import com.solvd.university.service.Service;
 
-public class PriceServiceImpl implements PriceService {
+public class PriceServiceImpl implements Service<Price> {
     private final PriceRepository priceRepository;
 
     public PriceServiceImpl() {

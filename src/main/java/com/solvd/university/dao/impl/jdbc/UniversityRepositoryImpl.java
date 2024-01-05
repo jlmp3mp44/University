@@ -2,12 +2,14 @@ package com.solvd.university.dao.impl.jdbc;
 
 import com.solvd.university.dao.ConnectionPool;
 import com.solvd.university.dao.UniversityRepository;
+import com.solvd.university.model.Faculty;
 import com.solvd.university.model.University;
 import com.solvd.university.model.exceptions.ProcessException;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class UniversityRepositoryImpl implements UniversityRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
@@ -34,8 +36,8 @@ public class UniversityRepositoryImpl implements UniversityRepository {
     }
 
     @Override
-    public List<University> findAll() {
-        List<University> universities = new ArrayList<>();
+    public List<Optional<University>> findAll() {
+        List<Optional<University>> universities = new ArrayList<>();
         Connection connection = CONNECTION_POOL.getConnection();
         String findAll = "SELECT * FROM universities";
         try {
@@ -45,7 +47,7 @@ public class UniversityRepositoryImpl implements UniversityRepository {
             while (resultSet.next()) {
                 String title = resultSet.getString("title");
                 String rector = resultSet.getString("rector");
-                University university = new University(title, rector);
+                Optional<University> university = Optional.of(new University(title, rector));
                 universities.add(university);
             }
 

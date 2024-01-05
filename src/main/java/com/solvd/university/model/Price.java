@@ -5,6 +5,9 @@ public class Price {
     private int cost;
     private Long specialityId;
 
+    public Price() {
+    }
+
     public Price(Integer cost, Long specialityId) {
         this.cost = cost;
         this.specialityId = specialityId;

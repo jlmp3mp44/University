@@ -5,17 +5,25 @@
 
 <mapper namespace="com.solvd.university.dao.UniversityRepository">
 
+    <sql id="universitySelect">
+        SELECT u.title as university_title, f.title as faculty_title
+        FROM universities u
+        LEFT JOIN faculties f ON f.university_id = u.id
+    </sql>
+
     <insert id="create"  keyColumn="id" keyProperty="id" useGeneratedKeys="true">
         INSERT INTO universities(title, rector) VALUES (#{title}, #{rector})
     </insert>
 
     <select id="findAll" resultMap="UniversityResultMap">
-        SELECT title, rector FROM universities
+        <include refid="universitySelect"/>
     </select>
 
-    <resultMap id="UniversityResultMap" type="com.solvd.university.model.University">
-        <result column="title" property="title"/>
-        <result column="rector" property="rector"/>
+    <resultMap id="UniversityResultMap" type="com.solvd.university.model.University" autoMapping="false">
+        <result column="university_title" property="title"/>
+        <collection property="faculties" resultMap="com.solvd.university.dao.FacultyRepository.FacultyResultMap"/>
     </resultMap>
+
+
 
 </mapper>

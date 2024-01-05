@@ -8,6 +8,7 @@ import com.solvd.university.model.exceptions.ProcessException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class FacultyRepositoryImpl implements FacultyRepository {
     private static final ConnectionPool CONNECTION_POOL = ConnectionPool.getInstance();
@@ -36,8 +37,8 @@ public class FacultyRepositoryImpl implements FacultyRepository {
     }
 
     @Override
-    public List<Faculty> findAll() {
-        List<Faculty> faculties = new ArrayList<>();
+    public List<Optional<Faculty>> findAll() {
+        List<Optional<Faculty>> faculties = new ArrayList<>();
         Connection connection = CONNECTION_POOL.getConnection();
         String findAll = "SELECT * FROM faculties";
         try {
@@ -49,7 +50,7 @@ public class FacultyRepositoryImpl implements FacultyRepository {
                 String dekan = resultSet.getString("dekan");
                 Long univerityid = resultSet.getLong("university_id");
 
-                Faculty faculty = new Faculty(title, description, dekan, univerityid);
+                Optional<Faculty> faculty = Optional.of(new Faculty(title, description, dekan, univerityid));
                 faculties.add(faculty);
             }
         } catch (SQLException e) {

@@ -4,12 +4,12 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.StudentRepository;
 import com.solvd.university.dao.impl.myBatis.StudentRepositoryMyBatisImpl;
 import com.solvd.university.model.Student;
-import com.solvd.university.service.PersonService;
+import com.solvd.university.service.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-public class StudentServiceImpl implements PersonService<Student> {
+public class StudentServiceImpl implements Service<Student> {
     private final StudentRepository studentRepository;
 
     public StudentServiceImpl() {

@@ -3,9 +3,9 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.CafedraRepository;
 import com.solvd.university.dao.impl.myBatis.CafedraRepositoryMyBatisImpl;
 import com.solvd.university.model.Cafedra;
-import com.solvd.university.service.EducationalService;
+import com.solvd.university.service.Service;
 
-public class CafedraServiceImpl implements EducationalService<Cafedra> {
+public class CafedraServiceImpl implements Service<Cafedra> {
 
     private final CafedraRepository cafedraRepository;
 

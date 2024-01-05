@@ -1,12 +1,11 @@
 package com.solvd.university.service.impl;
 
 import com.solvd.university.dao.PaymentRepository;
-import com.solvd.university.dao.impl.jdbc.PaymentRepositoryImpl;
 import com.solvd.university.dao.impl.myBatis.PaymentRepositoryMyBatisImpl;
 import com.solvd.university.model.Payment;
-import com.solvd.university.service.PaymentService;
+import com.solvd.university.service.Service;
 
-public class PaymentServiceImpl implements PaymentService {
+public class PaymentServiceImpl implements Service<Payment> {
     private final PaymentRepository paymentRepository;
 
     public PaymentServiceImpl() {

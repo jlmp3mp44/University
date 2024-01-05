@@ -4,6 +4,9 @@ public class HealthRecord {
     private Long id;
     private String medicalReport;
 
+    public HealthRecord() {
+    }
+
     public HealthRecord(String medicalReport) {
         this.medicalReport = medicalReport;
     }
