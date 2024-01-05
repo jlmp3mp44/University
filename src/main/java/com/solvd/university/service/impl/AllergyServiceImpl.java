@@ -3,9 +3,9 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.AllergyRepository;
 import com.solvd.university.dao.impl.myBatis.AllergyRepositoryMyBatisImpl;
 import com.solvd.university.model.Allergy;
-import com.solvd.university.service.MedicalService;
+import com.solvd.university.service.Service;
 
-public class AllergyServiceImpl implements MedicalService<Allergy> {
+public class AllergyServiceImpl implements Service<Allergy> {
     private final AllergyRepository allergyRepository;
 
     public AllergyServiceImpl() {

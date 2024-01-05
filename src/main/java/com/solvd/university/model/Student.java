@@ -8,6 +8,9 @@ public class Student {
     private String email;
     private Long healthRecordId;
 
+    public Student() {
+    }
+
     public Student(String name, String surname, String phoneNumber, String email, Long healthRecordId) {
         this.name = name;
         this.surname = surname;

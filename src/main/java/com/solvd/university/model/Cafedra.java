@@ -1,10 +1,16 @@
 package com.solvd.university.model;
 
+import java.util.List;
+
 public class Cafedra {
     private Long id;
     private String title;
     private String description;
     private Long facultyId;
+    private List<Speciality> specialities;
+
+    public Cafedra() {
+    }
 
     public Cafedra(String title, String description, Long facultyId) {
         this.title = title;
@@ -42,5 +48,13 @@ public class Cafedra {
 
     public void setFacultyId(Long facultyId) {
         this.facultyId = facultyId;
+    }
+
+    public List<Speciality> getSpecialities() {
+        return specialities;
+    }
+
+    public void setSpecialities(List<Speciality> specialities) {
+        this.specialities = specialities;
     }
 }

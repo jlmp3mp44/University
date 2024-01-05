@@ -10,6 +10,9 @@ public class Exam {
     private Long specialityId;
     private int time;
 
+    public Exam() {
+    }
+
 
     public Exam(String title, Date data, String descpription, Long specialityId, int time) {
         this.title = title;

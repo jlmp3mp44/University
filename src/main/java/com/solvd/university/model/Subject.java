@@ -5,6 +5,9 @@ public class Subject {
     private String title;
     private String description;
 
+    public Subject() {
+    }
+
     public Subject(String title, String description) {
         this.title = title;
         this.description = description;

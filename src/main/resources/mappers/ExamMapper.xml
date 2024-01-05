@@ -11,7 +11,6 @@
     </insert>
 
 
-
     <select id="findById" resultMap="ExamResultMap">
         SELECT title, data  FROM  exams WHERE id = #{id}
     </select>

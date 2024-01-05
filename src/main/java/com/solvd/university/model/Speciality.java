@@ -6,6 +6,9 @@ public class Speciality {
     private String description;
     private Long cafedraId;
 
+    public Speciality() {
+    }
+
     public Speciality(String title, String description, Long cafedraId) {
         this.title = title;
         this.description = description;

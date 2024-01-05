@@ -3,9 +3,9 @@ package com.solvd.university.service.impl;
 import com.solvd.university.dao.HealthRecordRepository;
 import com.solvd.university.dao.impl.myBatis.HealthRecordRepositoryMyBatisImpl;
 import com.solvd.university.model.HealthRecord;
-import com.solvd.university.service.MedicalService;
+import com.solvd.university.service.Service;
 
-public class HealthRecordServiceImpl implements MedicalService<HealthRecord> {
+public class HealthRecordServiceImpl implements Service<HealthRecord> {
 
     private final HealthRecordRepository healthRecordRepository;
 

@@ -5,15 +5,29 @@ import com.solvd.university.service.*;
 import com.solvd.university.service.impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
 
-
         Logger LOGGER = LogManager.getLogger(Main.class);
+
+        List<Faculty> faculties;
+        List<Cafedra> cafedries;
+        List<Speciality> specialities;
+
+        File file =  new File("src/main/resources/xml/exam.xml");
+
+
         HealthRecord healthRecord = new HealthRecord("VERY HEALTHY");
         Allergy allergy = new Allergy("Flowers", "Akwater", new Date(2023 - 12 - 11), null);
         Vaccine vaccine = new Vaccine("Stolbnyak", "Vaccine from stolbnyak", new Date(2011 - 05 - 06), null);
@@ -34,32 +48,39 @@ public class Main {
         Exam exam = new Exam("Programming", new Date(2023 - 23 - 05), "Exam for programming", null, 40);
         Payment payment = new Payment("Monobank", null, null, new Date(2023 - 12 - 01));
 
+        faculties =  List.of(faculty);
+        cafedries =  List.of(cafedra);
+        specialities =  List.of(speciality, speciality2);
+        university.setFaculties(faculties);
+        faculty.setCafedries(cafedries);
+        cafedra.setSpecialities(specialities);
 
-        MedicalService allergyService = new AllergyServiceImpl();
 
-        EducationalService cafedraService = new CafedraServiceImpl();
+        Service allergyService = new AllergyServiceImpl();
 
-        MedicalService healthRecordService = new HealthRecordServiceImpl();
+        Service cafedraService = new CafedraServiceImpl();
 
-        AssesstmentService examService = new ExamServiceImpl();
+        Service healthRecordService = new HealthRecordServiceImpl();
 
-        EducationalService facultyService = new FacultyServiceImpl();
+        Service examService = new ExamServiceImpl();
 
-        PaymentService paymentService = new PaymentServiceImpl();
+        Service facultyService = new FacultyServiceImpl();
 
-        PriceService priceService = new PriceServiceImpl();
+        Service paymentService = new PaymentServiceImpl();
 
-        PersonService professorService = new ProfessorServiceImpl();
+        Service priceService = new PriceServiceImpl();
 
-        EducationalService specialityService = new SpecialityServiceImpl();
+        Service professorService = new ProfessorServiceImpl();
 
-        PersonService studentService = new StudentServiceImpl();
+        Service specialityService = new SpecialityServiceImpl();
 
-        AssesstmentService subjectService = new SubjectServiceImpl();
+        Service studentService = new StudentServiceImpl();
 
-        EducationalService universityService = new UniversityServiceImpl();
+        Service subjectService = new SubjectServiceImpl();
 
-        MedicalService vaccineService = new VaccineServiceImpl();
+        Service universityService = new UniversityServiceImpl();
+
+        Service vaccineService = new VaccineServiceImpl();
 
         ManyToManyService studentsExamsService =  new StudentsExamsServiceImpl();
 
@@ -78,9 +99,12 @@ public class Main {
         vaccine.setHealthRecordId(healthRecord.getId());
         vaccineService.create(vaccine);
 
+
+
         universityService.create(university);
         faculty.setUniversityId(university.getId());
         facultyService.create(faculty);
+
         cafedra.setFacultyId(faculty.getId());
         cafedraService.create(cafedra);
         speciality.setCafedraId(cafedra.getId());
@@ -117,7 +141,7 @@ public class Main {
         LOGGER.info("Cafedra id " + cafedra.getId());
         LOGGER.info("Speciality id " + speciality.getId());
         LOGGER.info("Price id " + price.getId());
-        LOGGER.info("Student id" + student.getId());
+        LOGGER.info("Student id " + student.getId());
         LOGGER.info("Professor id " + professor.getId());
         LOGGER.info("Exam id " + exam.getId());
         LOGGER.info("Payment id " + payment.getId());
@@ -129,11 +153,25 @@ public class Main {
         allergyService.update(allergy);
         vaccineService.update(vaccine);
         List<University> universities =  universityService.findAll();
+        System.out.println(universities.get(0));
+        System.out.println(university.getFaculties().get(0));
         //List<Faculty> faculties = facultyService.findAll();
         specialityService.update(speciality);
         subjectService.findById(1l);
 
 
+        DocumentBuilderFactory  factory = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(file);
+            document.getChildNodes();
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

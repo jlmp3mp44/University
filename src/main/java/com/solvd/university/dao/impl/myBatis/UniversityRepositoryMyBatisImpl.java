@@ -6,6 +6,7 @@ import com.solvd.university.model.University;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UniversityRepositoryMyBatisImpl implements UniversityRepository {
 
@@ -18,7 +19,7 @@ public class UniversityRepositoryMyBatisImpl implements UniversityRepository {
     }
 
     @Override
-    public List<University> findAll() {
+    public List<Optional<University>> findAll() {
         try (SqlSession sqlSession = ConfigMyBatis.getSessionFactory().openSession(true)) {
             UniversityRepository universityRepository = sqlSession.getMapper(UniversityRepository.class);
             return universityRepository.findAll();
