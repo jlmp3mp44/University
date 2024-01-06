@@ -1,8 +1,0 @@
-<exam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:noNamespaceSchemaLocation="../xsd/exam.xsd">
-    <title>Programming</title>
-    <data>2017-05-06</data>
-    <description>Programming exam</description>
-    <specialityId>1</specialityId>
-    <time>2</time>
-</exam>
