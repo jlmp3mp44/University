@@ -5,28 +5,25 @@ import com.solvd.university.service.*;
 import com.solvd.university.service.impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
-import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
 public class Main {
+    private static final Logger LOGGER = LogManager.getLogger(Main.class);
     public static void main(String[] args) {
 
-        Logger LOGGER = LogManager.getLogger(Main.class);
+        //Creatig lists
 
         List<Faculty> faculties;
         List<Cafedra> cafedries;
         List<Speciality> specialities;
+        List<Allergy> allergies;
+        List<Vaccine> vaccines;
 
-        File file =  new File("src/main/resources/xml/exam.xml");
 
+        //Creating instances
 
         HealthRecord healthRecord = new HealthRecord("VERY HEALTHY");
         Allergy allergy = new Allergy("Flowers", "Akwater", new Date(2023 - 12 - 11), null);
@@ -48,13 +45,21 @@ public class Main {
         Exam exam = new Exam("Programming", new Date(2023 - 23 - 05), "Exam for programming", null, 40);
         Payment payment = new Payment("Monobank", null, null, new Date(2023 - 12 - 01));
 
+        //initializing lists and seting them to instances
+
         faculties =  List.of(faculty);
         cafedries =  List.of(cafedra);
         specialities =  List.of(speciality, speciality2);
+        vaccines =  List.of(vaccine);
+        allergies =  List.of(allergy);
+
         university.setFaculties(faculties);
         faculty.setCafedries(cafedries);
         cafedra.setSpecialities(specialities);
+        healthRecord.setAllergies(allergies);
+        healthRecord.setVaccines(vaccines);
 
+        //Creating services
 
         Service allergyService = new AllergyServiceImpl();
 
@@ -89,6 +94,8 @@ public class Main {
         ManyToManyService subjectsProfessorsService =  new SubjectsProfessorsServiceImpl();
 
 
+        //creating to database
+
         priceService.create(price);
         paymentService.create(payment);
 
@@ -98,7 +105,6 @@ public class Main {
         allergyService.create(allergy);
         vaccine.setHealthRecordId(healthRecord.getId());
         vaccineService.create(vaccine);
-
 
 
         universityService.create(university);
@@ -133,6 +139,8 @@ public class Main {
         subjectsProfessorsService.create(subject, professor);
         subjectsSpecialitiesService.create(speciality, subject);
 
+        //logging
+
         LOGGER.info("Allergy id " + allergy.getId());
         LOGGER.info("Vaccine id " + vaccine.getId());
         LOGGER.info("Health Record id " + healthRecord.getId());
@@ -146,6 +154,8 @@ public class Main {
         LOGGER.info("Exam id " + exam.getId());
         LOGGER.info("Payment id " + payment.getId());
 
+        //other methods to database
+
         allergy.setPills("Akwa");
         vaccine.setData(new Date(2017 - 05 - 04));
 
@@ -153,25 +163,12 @@ public class Main {
         allergyService.update(allergy);
         vaccineService.update(vaccine);
         List<University> universities =  universityService.findAll();
-        System.out.println(universities.get(0));
-        System.out.println(university.getFaculties().get(0));
+        LOGGER.info(universities.get(0));
+        LOGGER.info(university.getFaculties().get(0));
         //List<Faculty> faculties = facultyService.findAll();
         specialityService.update(speciality);
         subjectService.findById(1l);
 
-
-        DocumentBuilderFactory  factory = DocumentBuilderFactory.newInstance();
-        try {
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(file);
-            document.getChildNodes();
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 }

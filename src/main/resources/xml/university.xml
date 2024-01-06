@@ -1,0 +1,24 @@
+<university xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="../xsd/university.xsd" id = "1">
+    <title>HNU</title>
+    <rector>Anna</rector>
+    <faculties>
+        <faculty id = "1">
+            <title>PTI</title>
+            <description>Physically Technical Institute</description>
+            <dekan>Oleg</dekan>
+            <cafedries>
+                <cafedra id = "1">
+                    <title>MC</title>
+                    <description>Mathematic Cafedra</description>
+                    <specialities>
+                        <speciality id = "1">
+                            <title>122</title>
+                            <description>Very interesting speciality</description>
+                        </speciality>
+                    </specialities>
+                </cafedra>
+            </cafedries>
+        </faculty>
+    </faculties>
+</university>
