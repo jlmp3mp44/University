@@ -1,17 +1,18 @@
 package com.solvd.university;
 
 import com.solvd.university.model.*;
-import com.solvd.university.service.*;
+import com.solvd.university.service.ManyToManyService;
+import com.solvd.university.service.Service;
 import com.solvd.university.service.impl.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.File;
 import java.sql.Date;
 import java.util.List;
 
 public class Main {
-    private static final Logger LOGGER = LogManager.getLogger(Main.class);
+    private static final Logger LOGGER = LogManager.getLogger("Main");
+
     public static void main(String[] args) {
 
         //Creatig lists
@@ -47,11 +48,11 @@ public class Main {
 
         //initializing lists and seting them to instances
 
-        faculties =  List.of(faculty);
-        cafedries =  List.of(cafedra);
-        specialities =  List.of(speciality, speciality2);
-        vaccines =  List.of(vaccine);
-        allergies =  List.of(allergy);
+        faculties = List.of(faculty);
+        cafedries = List.of(cafedra);
+        specialities = List.of(speciality, speciality2);
+        vaccines = List.of(vaccine);
+        allergies = List.of(allergy);
 
         university.setFaculties(faculties);
         faculty.setCafedries(cafedries);
@@ -87,11 +88,11 @@ public class Main {
 
         Service vaccineService = new VaccineServiceImpl();
 
-        ManyToManyService studentsExamsService =  new StudentsExamsServiceImpl();
+        ManyToManyService studentsExamsService = new StudentsExamsServiceImpl();
 
-        ManyToManyService subjectsSpecialitiesService =  new SubjectSpecialityServiceImpl();
+        ManyToManyService subjectsSpecialitiesService = new SubjectSpecialityServiceImpl();
 
-        ManyToManyService subjectsProfessorsService =  new SubjectsProfessorsServiceImpl();
+        ManyToManyService subjectsProfessorsService = new SubjectsProfessorsServiceImpl();
 
 
         //creating to database
@@ -162,7 +163,7 @@ public class Main {
         healthRecordService.findById(12L);
         allergyService.update(allergy);
         vaccineService.update(vaccine);
-        List<University> universities =  universityService.findAll();
+        List<University> universities = universityService.findAll();
         LOGGER.info(universities.get(0));
         LOGGER.info(university.getFaculties().get(0));
         //List<Faculty> faculties = facultyService.findAll();

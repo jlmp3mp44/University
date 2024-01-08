@@ -1,11 +1,18 @@
 package com.solvd.university.model;
 
+import jakarta.xml.bind.annotation.*;
+
 import java.util.List;
 
+@XmlRootElement(name = "university")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class University {
+    @XmlAttribute(name = "id")
     private Long id;
     private String title;
     private String rector;
+    @XmlElementWrapper(name = "faculties")
+    @XmlElement(name = "faculty")
     private List<Faculty> faculties;
 
     public University() {

@@ -1,6 +1,12 @@
 package com.solvd.university.model;
 
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Speciality {
+    @XmlAttribute(name = "id")
     private Long id;
     private String title;
     private String description;

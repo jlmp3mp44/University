@@ -1,4 +1,4 @@
-package com.solvd.university;
+package com.solvd.university.parsers;
 
 import com.solvd.university.model.*;
 import org.apache.logging.log4j.LogManager;
@@ -9,28 +9,28 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DOMParser {
-    private static final Logger LOGGER = LogManager.getLogger(DOMParser.class);
+    private static final Logger LOGGER = LogManager.getLogger("Parser");
 
     public static void main(String[] args) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         File fileUniversity = new File
                 ("D:\\Course_testimg\\University\\University\\src\\main\\resources\\xml\\university.xml");
-        File fileSubject =  new File
+        File fileSubject = new File
                 ("D:\\Course_testimg\\University\\University\\src\\main\\resources\\xml\\subject.xml");
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
 
             Document documentUniversity = builder.parse(fileUniversity);
-            Document doscumentSubject =  builder.parse(fileSubject);
+            Document doscumentSubject = builder.parse(fileSubject);
 
 
             University university = universityParse(documentUniversity);
@@ -55,7 +55,7 @@ public class DOMParser {
                     }
                 }
             }
-            Subject subject =  subjectparse(doscumentSubject);
+            Subject subject = subjectparse(doscumentSubject);
             LOGGER.info("Subject title " + subject.getTitle());
             LOGGER.info("Subect description " + subject.getDescription());
 
@@ -68,7 +68,9 @@ public class DOMParser {
         }
     }
 
+
     public static University universityParse(Document document) {
+        List<Faculty> facultyList = new ArrayList<>();
         University university = null;
         NodeList universities = document.getElementsByTagName("university");
         for (int i = 0; i < universities.getLength(); i++) {
@@ -88,15 +90,17 @@ public class DOMParser {
 
                     if (facultyNode.getNodeType() == Node.ELEMENT_NODE) {
                         Faculty faculty = facultyParse((Element) facultyNode);
-                        university.setFaculties(List.of(faculty));
+                        facultyList.add(faculty);
                     }
                 }
             }
         }
+        university.setFaculties(facultyList);
         return university;
     }
 
     public static Faculty facultyParse(Element facultyElement) {
+        List<Cafedra> cafedryList = new ArrayList<>();
         Faculty faculty = null;
         String facultyTitle = facultyElement.getElementsByTagName("title").item(0).getTextContent();
         String facultyDescription = facultyElement.getElementsByTagName("description").item(0).getTextContent();
@@ -110,13 +114,15 @@ public class DOMParser {
 
             if (cafedryNode.getNodeType() == Node.ELEMENT_NODE) {
                 Cafedra cafedra = cafedraParse((Element) cafedryNode);
-                faculty.setCafedries(List.of(cafedra));
+                cafedryList.add(cafedra);
             }
         }
+        faculty.setCafedries(cafedryList);
         return faculty;
     }
 
     public static Cafedra cafedraParse(Element cafedraElement) {
+        List<Speciality> specialities = new ArrayList<>();
         Cafedra cafedra = null;
         String cafedraTitle = cafedraElement.getElementsByTagName("title").item(0).getTextContent();
         String cafedraDescription = cafedraElement.getElementsByTagName("description").item(0).getTextContent();
@@ -129,14 +135,15 @@ public class DOMParser {
 
             if (specialityNode.getNodeType() == Node.ELEMENT_NODE) {
                 Speciality speciality = specialityParse((Element) specialityNode);
-                cafedra.setSpecialities(List.of(speciality));
+                specialities.add(speciality);
             }
         }
+        cafedra.setSpecialities(specialities);
         return cafedra;
     }
 
     public static Speciality specialityParse(Element specialityElement) {
-        Speciality speciality = null;
+        Speciality speciality;
         String specialityTitle = specialityElement.getElementsByTagName("title").item(0).getTextContent();
         String specialityDescription = specialityElement.getElementsByTagName("description").item(0).getTextContent();
 
@@ -163,5 +170,6 @@ public class DOMParser {
         }
         return subject;
     }
+
 }
 
