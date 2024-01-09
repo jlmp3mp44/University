@@ -1,13 +1,21 @@
 package com.solvd.university.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.xml.bind.annotation.*;
+
 import java.util.List;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Faculty {
+    @XmlAttribute(name = "id")
     private Long id;
     private String title;
     private String description;
     private String dekan;
+    @JsonIgnore
     private Long universityId;
+    @XmlElementWrapper(name = "cafedries")
+    @XmlElement(name = "cafedra")
     private List<Cafedra> cafedries;
 
     public Faculty() {

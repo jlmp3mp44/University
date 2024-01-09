@@ -1,9 +1,17 @@
 package com.solvd.university.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Speciality {
+    @XmlAttribute(name = "id")
     private Long id;
     private String title;
     private String description;
+    @JsonIgnore
     private Long cafedraId;
 
     public Speciality() {
