@@ -59,11 +59,7 @@ public class DOMParser {
             LOGGER.info("Subject title " + subject.getTitle());
             LOGGER.info("Subect description " + subject.getDescription());
 
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (SAXException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             throw new RuntimeException(e);
         }
     }

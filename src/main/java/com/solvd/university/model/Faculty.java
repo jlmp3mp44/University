@@ -1,5 +1,6 @@
 package com.solvd.university.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class Faculty {
     private String title;
     private String description;
     private String dekan;
+    @JsonIgnore
     private Long universityId;
     @XmlElementWrapper(name = "cafedries")
     @XmlElement(name = "cafedra")

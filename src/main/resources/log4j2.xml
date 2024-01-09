@@ -21,18 +21,13 @@
 
         <Logger name="Main" level="info" additivity="false">
             <AppenderRef ref="MainFile"/>
-        </Logger>
-
-        <Logger name="Main" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-
 
         <Logger name="Parser" level="info" additivity="false">
             <AppenderRef ref="ParserFile"/>
-        </Logger>
-        <Logger name="Parser" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
+
     </Loggers>
 </Configuration>
