@@ -14,8 +14,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import static jakarta.xml.bind.DatatypeConverter.parseDate;
 
 public class DOMParser {
     private static final Logger LOGGER = LogManager.getLogger("Parser");
@@ -42,6 +47,7 @@ public class DOMParser {
                 LOGGER.info("\nFaculty Title: " + faculty.getTitle());
                 LOGGER.info("Faculty Description: " + faculty.getDescription());
                 LOGGER.info("Faculty Dekan: " + faculty.getDekan());
+                LOGGER.info("Date creating Faculty " + faculty.getDateCreatingFaculty());
 
                 List<Cafedra> cafedras = faculty.getCafedries();
                 for (Cafedra cafedra : cafedras) {
@@ -101,8 +107,11 @@ public class DOMParser {
         String facultyTitle = facultyElement.getElementsByTagName("title").item(0).getTextContent();
         String facultyDescription = facultyElement.getElementsByTagName("description").item(0).getTextContent();
         String facultyDekan = facultyElement.getElementsByTagName("dekan").item(0).getTextContent();
+        String dateCreaingFacultyStr = facultyElement.getElementsByTagName
+                ("dateCreatingFaculty").item(0).getTextContent();
+        Date dateCreatingFaculty = parseSqlDate(dateCreaingFacultyStr);
 
-        faculty = new Faculty(facultyTitle, facultyDescription, facultyDekan, null);
+        faculty = new Faculty(facultyTitle, facultyDescription, facultyDekan, null, dateCreatingFaculty);
 
         NodeList cafedriesList = facultyElement.getElementsByTagName("cafedries");
         for (int j = 0; j < cafedriesList.getLength(); j++) {
@@ -165,6 +174,17 @@ public class DOMParser {
             }
         }
         return subject;
+    }
+
+    private static Date parseSqlDate(String dateStr) {
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date utilDate = dateFormat.parse(dateStr);
+            return new Date(utilDate.getTime());
+        } catch (ParseException e) {
+            // Handle parsing exception
+            return null;
+        }
     }
 
 }

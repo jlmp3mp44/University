@@ -6,17 +6,19 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class SecondAdapter extends JsonDeserializer<LocalDate> {
+public class SecondAdapter extends JsonDeserializer<Date> {
     @Override
-    public LocalDate deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
-        String localDateString = jsonParser.readValueAs(String.class);
+    public Date deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException, JacksonException {
+        String dateString = jsonParser.readValueAs(String.class);
 
-        if (localDateString != null && !localDateString.isEmpty()) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-mm-dd");
-            return LocalDate.parse(localDateString, formatter);
+        if (dateString != null && !dateString.isEmpty()) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate localDate = LocalDate.parse(dateString, formatter);
+            return Date.valueOf(localDate);
         } else
             return null;
     }
