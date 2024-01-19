@@ -1,8 +1,13 @@
 package com.solvd.university.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.solvd.university.parsers.MyAdapter;
+import com.solvd.university.parsers.SecondAdapter;
 import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import java.sql.Date;
 import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -18,6 +23,10 @@ public class Faculty {
     @XmlElement(name = "cafedra")
     private List<Cafedra> cafedries;
 
+    @XmlJavaTypeAdapter(MyAdapter.class)
+    @JsonDeserialize(using = SecondAdapter.class)
+    private Date dateCreatingFaculty;
+
     public Faculty() {
     }
 
@@ -26,6 +35,13 @@ public class Faculty {
         this.description = description;
         this.dekan = dekan;
         this.universityId = universityId;
+    }
+    public Faculty(String title, String description, String dekan, Long universityId, Date dateCreatingFaculty) {
+        this.title = title;
+        this.description = description;
+        this.dekan = dekan;
+        this.universityId = universityId;
+        this.dateCreatingFaculty =  dateCreatingFaculty;
     }
 
 
@@ -76,4 +92,13 @@ public class Faculty {
     public void setCafedries(List<Cafedra> cafedries) {
         this.cafedries = cafedries;
     }
+
+    public Date getDateCreatingFaculty() {
+        return dateCreatingFaculty;
+    }
+
+    public void setDateCreatingFaculty(Date dateCreatingFaculty) {
+        this.dateCreatingFaculty = dateCreatingFaculty;
+    }
 }
+

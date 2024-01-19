@@ -1,5 +1,6 @@
 package com.solvd.university;
 
+import com.solvd.university.dao.CafedraRepository;
 import com.solvd.university.model.*;
 import com.solvd.university.service.ManyToManyService;
 import com.solvd.university.service.Service;
@@ -8,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Main {
@@ -169,6 +172,7 @@ public class Main {
         //List<Faculty> faculties = facultyService.findAll();
         specialityService.update(speciality);
         subjectService.findById(1l);
+
 
 
     }

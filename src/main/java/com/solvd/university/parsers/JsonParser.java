@@ -26,6 +26,7 @@ public class JsonParser {
             LOGGER.info("\nFaculty Title: " + faculty.getTitle());
             LOGGER.info("Faculty Description: " + faculty.getDescription());
             LOGGER.info("Faculty Dekan: " + faculty.getDekan());
+            LOGGER.info("Faculty date Creating " + faculty.getDateCreatingFaculty());
 
             List<Cafedra> cafedras = faculty.getCafedries();
             for (Cafedra cafedra : cafedras) {

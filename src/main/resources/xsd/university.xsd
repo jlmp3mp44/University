@@ -36,6 +36,7 @@
             <xs:element name="title" type="xs:string"/>
             <xs:element name="description" type="xs:string"/>
             <xs:element name="dekan" type="xs:string"/>
+            <xs:element name="dateCreatingFaculty" type="xs:date"/>
         </xs:all>
         <xs:attribute name="id" type="xs:long" use="required"/>
     </xs:complexType>

@@ -8,6 +8,7 @@
       "title": "FIOT",
       "description": "Very interesting faculty",
       "dekan": "Stanislav",
+      "dateCreatingFaculty": "2011-05-02",
       "cafedries": [
         {
           "id": 1,
@@ -38,6 +39,7 @@
       "title": "IPSA",
       "description": "Very interesting faculty",
       "dekan": "Anna",
+      "dateCreatingFaculty": "1993-08-01",
       "cafedries": []
     }
     ]
